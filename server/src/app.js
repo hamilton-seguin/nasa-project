@@ -3,6 +3,8 @@ const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
 
+const serverless = require('serverless-http');
+
 const api = require("./routes/api");
 
 const app = express();
@@ -23,4 +25,4 @@ app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
-module.exports = app;
+module.exports = serverless(app);
