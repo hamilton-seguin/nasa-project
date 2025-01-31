@@ -1,7 +1,5 @@
 require('dotenv').config()
 
-const serverless = require('serverless-http');
-
 const app = require('./app')
 const { loadPlanetsData } = require('./models/planets.model')
 const { mongoConnect } = require('./services/mongo')
@@ -18,4 +16,4 @@ init().catch((err) => {
   console.error("Error during server initialization", err);
 });
 
-module.exports = serverless(app)
+module.exports = app
