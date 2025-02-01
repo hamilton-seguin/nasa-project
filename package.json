@@ -2,6 +2,7 @@
   "name": "nasa-project",
   "version": "1.0.0",
   "description": "",
+  "homepage": "/nasa-api",
   "main": "index.js",
   "scripts": {
     "install-server": "npm install --prefix server",
