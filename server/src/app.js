@@ -11,21 +11,26 @@ const api = require('./routes/api')
 
 const app = express()
 
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//   })
-// )
+// Create a sub-app for the nasa-api routes
+const nasaApp = express();
 
-app.use(express.json())
-app.use(express.static(path.join(__dirname, '..', 'public')))
-app.use(morgan('combined'))
+nasaApp.use(express.json());
+nasaApp.use(morgan('combined'));
 
-app.use('/v1', api)
+// Serve static assets at /nasa-api/static
+nasaApp.use('/static', express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
-})
+// API routes should be mounted relative to the sub-app.
+nasaApp.use('/v1', api);
+
+// For any other route, serve the React app’s index.html.
+// Make sure that the built index.html (in your public folder) is using relative paths.
+nasaApp.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
+
+// Mount the sub-app under /nasa-api
+app.use('/nasa-api', nasaApp);
 
 const { loadPlanetsData } = require('./models/planets.model')
 const { mongoConnect } = require('./services/mongo')
