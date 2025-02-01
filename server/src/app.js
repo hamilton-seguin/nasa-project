@@ -18,7 +18,7 @@ const app = express()
 // )
 
 app.use(express.json())
-app.use(express.static(path.join(__dirname, '..', 'public')))
+app.use('/nasa-api/static', express.static(path.join(__dirname, '..', 'public')))
 app.use(morgan('combined'))
 
 app.use('/v1', api)
