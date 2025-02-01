@@ -2,6 +2,7 @@
   "name": "nasa-fe",
   "version": "1.0.1",
   "private": true,
+  "homepage": "/nasa-api",
   "dependencies": {
     "arwes": "^1.0.0-alpha.5",
     "react": "^17.0.2",
