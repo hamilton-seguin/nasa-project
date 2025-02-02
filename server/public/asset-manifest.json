@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/nasa-api/static/js/main.217b7f07.js",
-    "index.html": "/nasa-api/index.html",
-    "main.217b7f07.js.map": "/nasa-api/static/js/main.217b7f07.js.map"
+    "main.js": "/static/js/main.217b7f07.js",
+    "index.html": "/index.html",
+    "main.217b7f07.js.map": "/static/js/main.217b7f07.js.map"
   },
   "entrypoints": [
     "static/js/main.217b7f07.js"
